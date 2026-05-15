@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/<your-username>/expenses-pro:latest
+          image: ghcr.io/nouhaila-sketch/expenses-pro:main
           ports:
             - containerPort: 5000
           resources:
@@ -29,7 +29,7 @@ spec:
               memory: "256Mi"
           env:
             - name: SECRET_KEY
-              valuefrom:
+              valueFrom:
                 secretKeyRef:
                   name: expenses-pro-secret
                   key: SECRET_KEY
