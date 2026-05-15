@@ -1,7 +1,95 @@
-<form method="POST" class="card p-4 shadow mx-auto" style="max-width:400px">
-    <h4>Login</h4>
-    <input name="username" class="form-control mb-2">
-    <input name="password" type="password" class="form-control mb-2">
-    <button class="btn btn-dark w-100">Login</button>
-    <a href="/register">Create account</a>
-    </form>
+{% extends "base.html" %}
+{% block content %}
+<style>
+.auth-wrapper {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.auth-header {
+    background: linear-gradient(135deg, #212529, #343a40);
+    color: #fff;
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+}
+.auth-header h3 {
+    margin: 0;
+    font-weight: 600;
+}
+.auth-header p {
+    margin: 0.25rem 0 0;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+.auth-body {
+    padding: 2rem;
+    background: #fff;
+}
+.auth-body .form-control {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    transition: 0.2s;
+}
+.auth-body .form-control:focus {
+    border-color: #212529;
+    box-shadow: 0 0 0 3px rgba(33,37,41,0.1);
+}
+.auth-body .form-label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #495057;
+    margin-bottom: 0.3rem;
+}
+.auth-body .btn {
+    border-radius: 10px;
+    padding: 0.7rem;
+    font-weight: 600;
+}
+.auth-footer {
+    text-align: center;
+    padding: 0 2rem 2rem;
+    background: #fff;
+}
+.auth-footer a {
+    color: #495057;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+.auth-footer a:hover {
+    color: #212529;
+    text-decoration: underline;
+}
+</style>
+
+<div class="auth-wrapper">
+    <div class="auth-card card">
+        <div class="auth-header">
+            <h3>Welcome back</h3>
+            <p>Sign in to your account</p>
+        </div>
+        <form method="POST">
+            <div class="auth-body">
+                <label class="form-label">Username</label>
+                <input name="username" class="form-control mb-3" placeholder="Enter your username" required autofocus>
+                <label class="form-label">Password</label>
+                <input name="password" type="password" class="form-control mb-4" placeholder="Enter your password" required>
+                <button class="btn btn-dark w-100">Sign In</button>
+            </div>
+            <div class="auth-footer">
+                <a href="/register">Don't have an account? Create one</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
