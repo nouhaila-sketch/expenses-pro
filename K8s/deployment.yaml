@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expenses-pro
+  labels:
+    app: expenses-pro
+  namespace: expenses-pro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expenses-pro
+  template:
+    metadata:
+      labels:
+        app: expenses-pro
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/nouhaila-sketch/expenses-pro:main
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          env:
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: expenses-pro-secret
+                  key: SECRET_KEY
