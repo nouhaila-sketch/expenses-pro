@@ -13,14 +13,12 @@ def _test_db(monkeypatch):
     conn.execute(
         "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)"
     )
-    conn.execute(
-        """CREATE TABLE IF NOT EXISTS expenses (
+    conn.execute("""CREATE TABLE IF NOT EXISTS expenses (
         id INTEGER PRIMARY KEY,
         name TEXT,
         amount REAL,
         category TEXT
-    )"""
-    )
+    )""")
     conn.commit()
     conn.close()
 

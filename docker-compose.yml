@@ -3,5 +3,7 @@ version: '3'
 services:
   web:
     build: .
+    volumes:
+      - .:/app
     ports:
       - "5050:5000"
