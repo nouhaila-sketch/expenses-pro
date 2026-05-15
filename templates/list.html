@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Expenses</h3>
+
+<a href="/export" class="btn btn-success mb-2">Download CSV</a>
+
+<table class="table bg-white shadow">
+<tr><th>Name</th><th>Amount</th><th>Category</th><th>Action</th></tr>
+
+{% for e in expenses %}
+<tr>
+<td>{{ e[1] }}</td>
+<td>{{ e[2] }}</td>
+<td>{{ e[3] }}</td>
+<td><a href="/delete/{{ e[0] }}" class="btn btn-danger btn-sm">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

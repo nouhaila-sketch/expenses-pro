@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>📊 Dashboard</h3>
+
+<div class="alert alert-info text-center">
+💰 Total: {{ total }} DH
+</div>
+
+<canvas id="chart"></canvas>
+
+<script>
+new Chart(document.getElementById('chart'), {
+type:'pie',
+data:{
+labels: {{ categories.keys()|list }},
+datasets:[{data: {{ categories.values()|list }} }]
+}
+});
+</script>
+
+{% endblock %}

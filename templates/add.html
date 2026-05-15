@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Add Expense</h3>
+
+<div class="card p-4 shadow">
+<form method="POST" onsubmit="showToast()">
+<input class="form-control mb-2" name="name" placeholder="Name">
+<input class="form-control mb-2" name="amount" type="number">
+<select name="category" class="form-control mb-2">
+<option>Food</option>
+<option>Transport</option>
+<option>Shopping</option>
+<option>Other</option>
+</select>
+<button class="btn btn-success w-100">Add</button>
+</form>
+</div>
+
+{% endblock %}
